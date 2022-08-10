@@ -80,7 +80,7 @@ print(sum_of_inputs())
 ##################################
 
 
-###### sum of user inputs #######
+###### odd/even number #######
 def is_odd_number(x):
     return True if int(x) % 2 != 0 else False
 
@@ -89,4 +89,57 @@ if(is_odd_number(input("Enter a number: "))):
     print("Odd")
 else:
     print("Even")
+##################################
+
+
+###### fibonacci series upto n #######
+def fibo(num):
+    if num <= 1:
+        return num
+    return fibo(num - 1) + fibo(num - 2)
+
+
+for i in range(10):
+    print(fibo(i), end=" ")
+##################################
+
+
+###### is this text a palindrome? #######
+def palindrome(text: str):
+    # return text == text[::-1]
+    j, flag = -1, True
+
+    for character in text:
+        if character != text[j]:
+            flag = False
+            break
+        j -= 1
+
+    return flag
+
+
+if(palindrome("AsdA")):
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+##################################
+
+
+###### is this an armstrong number? #######
+def armstrong_number(num: int):
+    number_of_digits = len(str(num))
+    temp = num
+    sum = 0
+
+    while(temp > 0):
+        digit = temp % 10
+        sum += digit ** number_of_digits
+        temp //= 10
+
+    return num == sum
+
+
+print("153 ARMSTRONG") if(armstrong_number(153)) else print("REGULAR")
+print("1634 ARMSTRONG") if(armstrong_number(1634)) else print("REGULAR")
+print("15 ARMSTRONG") if(armstrong_number(15)) else print("REGULAR")
 ##################################
