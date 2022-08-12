@@ -217,3 +217,26 @@ def reverse_number(x):
 
 print(reverse_number(21453))
 ##################################
+
+
+###### factorial #######
+def factorial(num):
+    if num <= 1:
+        return 1
+    return num * factorial(num-1)
+
+
+print(factorial(13))
+##################################
+
+
+###### A Pythagorean triplet #######
+a ^ 2 + b ^ 2 = c ^ 2
+
+
+def is_triplet(a, b, c):
+    return "Pythagorean triplet" if a**2 + b**2 == c**2 else "Not triplet"
+
+
+print(is_triplet(8, 15, 17))
+##################################
