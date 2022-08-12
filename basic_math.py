@@ -143,3 +143,67 @@ print("153 ARMSTRONG") if(armstrong_number(153)) else print("REGULAR")
 print("1634 ARMSTRONG") if(armstrong_number(1634)) else print("REGULAR")
 print("15 ARMSTRONG") if(armstrong_number(15)) else print("REGULAR")
 ##################################
+
+
+###### individual digits #######
+def get_digits(num):
+    unit_digit = num % 10
+    tenth_digit = (num // 10) % 10
+    hundredth_digit = (num // 100) % 10
+    thousandth_digit = num // 1000
+    print(thousandth_digit, hundredth_digit, tenth_digit, unit_digit)
+
+
+get_digits(1513)
+##################################
+
+
+###### largest number in user inputs #######
+def largest_number():
+    largest = 0
+    while(1):
+        x = input("Enter a num: ")
+        if x == 'x':
+            break
+        if int(x) > largest:
+            largest = int(x)
+
+    print("The largest number entered is: ", largest)
+
+
+largest_number()
+##################################
+
+
+###### what is the case of the entered letter? #######
+def case_check(letter):
+    if len(letter) > 1:
+        print("Invalid input")
+    else:
+        if 'a' <= letter <= 'z':
+            print("lowercase")
+        elif 'A' <= letter <= 'Z':
+            print("UPPERCASE")
+
+
+case_check(input("Enter a letter: "))
+##################################
+
+
+###### reverse a number #######
+def reverse_number(x):
+    print("Type of input: ", type(x))
+    rev = 0
+
+    # 21453
+    # 21453 / 10 = 3, 5
+    # rev = 3*10 + 5
+    while(x > 0):
+        rem = x % 10
+        rev = rev * 10 + rem
+        x = x // 10
+    return rev
+
+
+print(reverse_number(21453))
+##################################
