@@ -1,19 +1,29 @@
 ###### is a number prime? #######
-def is_prime(number):
-    if (int(number) > 1):
-        for i in range(2, int(number)):
-            if(int(number) % i == 0):
-                return True
+def is_prime(number: int):
+    flag = False
+    if (number > 1):
+        for i in range(2, number//2 + 1):
+            if(number % i == 0):
+                print("divisible by ", i)
+                flag = False
+                break
+            else:
+                flag = True
     else:
-        return False
+        return -1
+    return flag
 
 
 print("enter #: ")
-n = input()
-if(is_prime(n)):
-    print("Neither prime nor composite.")
-else:
+n = int(input())
+ans = is_prime(n)
+
+if(ans == True):
     print("Prime")
+elif (ans == False):
+    print("Composite")
+elif (ans == -1):
+    print("Neither")
 ##################################
 
 
