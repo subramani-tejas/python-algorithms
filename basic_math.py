@@ -231,7 +231,7 @@ print(factorial(13))
 
 
 ###### A Pythagorean triplet #######
-a ^ 2 + b ^ 2 = c ^ 2
+# a ^ 2 + b ^ 2 = c ^ 2
 
 
 def is_triplet(a, b, c):
