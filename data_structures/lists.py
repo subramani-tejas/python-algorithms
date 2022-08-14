@@ -78,3 +78,14 @@ list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 
 print(list(zip("tjs", list1, list2)))
+
+
+# list comprehension sample
+values_old = []
+
+for x in range(5):
+    values_old.append(x * 2)
+
+values = [x * 2 for x in range(5)]
+
+print(values)
