@@ -110,16 +110,54 @@ def largestAltitude(gain):
 
 
 gain = [-4, -3, -2, -1, 4, 3, 2]
-print(largestAltitude(gain))
+(largestAltitude(gain))
 
 
 # 832. Flipping an Image
 # https://leetcode.com/problems/flipping-an-image/
 def flipAndInvertImage(image):
-    pass
+    horizontal_flipped_image = [pixel_row[::-1] for pixel_row in image]
+    reversed_image = [reverse_image(pixel_row)
+                      for pixel_row in horizontal_flipped_image]
+
+    return reversed_image
+
+
+def reverse_image(image):
+    reversed_pixel_row = [0] * len(image)
+
+    for i in range(len(image)):
+        if image[i] == 0:
+            reversed_pixel_row[i] = 1
+
+    return reversed_pixel_row
 
 
 image = [[1, 1, 0],
          [1, 0, 1],
          [0, 0, 0]]
-print(flipAndInvertImage(image))
+(flipAndInvertImage(image))
+
+
+# 1252. Cells with Odd Values in a Matrix
+# https://leetcode.com/problems/cells-with-odd-values-in-a-matrix/
+
+def oddCells(m, n, indices):
+    matrix = [[0] * n] * m
+
+    # for row, col in indices:
+    for i in range(n):
+        matrix[0][i] += 1
+        print(matrix)
+
+    for j in range(m):
+        matrix[j][1] += 1
+        print(matrix)
+
+    print(matrix)
+
+
+m = 2
+n = 3
+indices = [[0, 1], [1, 1]]
+oddCells(m, n, indices)
