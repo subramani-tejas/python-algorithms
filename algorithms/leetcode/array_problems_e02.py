@@ -65,9 +65,61 @@ def checkIfPangram(sentence: str) -> bool:
         if letter not in found:
             found.append(letter)
 
-    print(len(found))
     return len(found) == ALPHABET_SIZE
 
 
 sentence = "thequickbrownfoxjumpsoverthelazydog"
-print(checkIfPangram(sentence))
+(checkIfPangram(sentence))
+
+
+# 1773. Count Items Matching a Rule
+# https://leetcode.com/problems/count-items-matching-a-rule/
+def countMatches(items, ruleKey, ruleValue):
+    count = 0
+
+    for item in items:
+        if ruleKey == "type" and ruleValue == item[0]:
+            count += 1
+        if ruleKey == "color" and ruleValue == item[1]:
+            count += 1
+        if ruleKey == "name" and ruleValue == item[2]:
+            count += 1
+
+    return count
+
+
+items = items = [["phone", "blue", "pixel"],
+                 ["computer", "silver", "phone"],
+                 ["phone", "gold", "iphone"]]
+ruleKey = "type"
+ruleValue = "phone"
+
+(countMatches(items, ruleKey, ruleValue))
+
+
+# 1732. Find the Highest Altitude
+# https://leetcode.com/problems/find-the-highest-altitude/
+def largestAltitude(gain):
+    n = len(gain)
+    altitudes = [0] * (n+1)
+
+    for i in range(n):
+        altitudes[i+1] = altitudes[i] + gain[i]
+
+    return max(altitudes)
+
+
+gain = [-4, -3, -2, -1, 4, 3, 2]
+print(largestAltitude(gain))
+
+
+# 832. Flipping an Image
+# https://leetcode.com/problems/flipping-an-image/
+def flipAndInvertImage(image):
+    pass
+
+
+image = [[1, 1, 0],
+         [1, 0, 1],
+         [0, 0, 0]]
+print(flipAndInvertImage(image))
