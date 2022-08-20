@@ -148,16 +148,52 @@ def oddCells(m, n, indices):
     # for row, col in indices:
     for i in range(n):
         matrix[0][i] += 1
-        print(matrix)
+        # print(matrix)
 
     for j in range(m):
         matrix[j][1] += 1
-        print(matrix)
+        # print(matrix)
 
-    print(matrix)
+    # print(matrix)
 
 
 m = 2
 n = 3
 indices = [[0, 1], [1, 1]]
 oddCells(m, n, indices)
+
+
+# 1572. Matrix Diagonal Sum
+# https://leetcode.com/problems/matrix-diagonal-sum/
+
+def diagonalSum(mat):
+    sum = 0
+    for i in range(len(mat)):
+        for j in range(len(mat[0])):
+            map = {f"{i}{j}": mat[i][j]}
+            if i == j:
+                sum += mat[i][j]
+
+    return sum
+
+
+mat = [[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]]
+(diagonalSum(mat))
+
+
+# 1295. Find Numbers with Even Number of Digits
+# https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+
+def findNumbers(nums):
+    count = 0
+    for num in nums:
+        if len(str(num)) % 2 == 0:
+            count += 1
+
+    return count
+
+
+nums = [12, 345, 2, 6, 7896]
+(findNumbers(nums))
