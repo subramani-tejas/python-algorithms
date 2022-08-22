@@ -1,5 +1,4 @@
-from email.policy import default
-from importlib.util import set_loader
+from collections import namedtuple
 
 
 class Point:
@@ -48,3 +47,18 @@ point_0.x = 2
 point_0.y = 3
 
 print("Comparing:", point == point_0)
+
+
+# data classes
+# abstract? classes that contain only data - no methods/logic
+AbstractPoint = namedtuple("AbstractPoint", ["x", "y"])
+
+# immutable objects (individual values can't be changed later)
+p1 = AbstractPoint(x=1, y=2)
+
+# we can change the reference
+p1 = AbstractPoint(x=1, y=22)
+p2 = AbstractPoint(x=1, y=2)
+
+# compares the individual values
+print(p1 == p2)
