@@ -3,7 +3,7 @@
 from typing import List
 
 
-def searchRange(self, arr: List[int], key: int) -> List[int]:
+def search_range(self, arr: List[int], key: int) -> List[int]:
     first_occurence = binary_search(arr, key, first_index=True)
     last_occurence = binary_search(arr, key, first_index=False)
 
