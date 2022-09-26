@@ -1,10 +1,13 @@
 # https://leetcode.com/problems/first-missing-positive/
+from typing import List
+
+
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         i = 0
         while i < len(nums):
             ci = nums[i] - 1
-            if nums[i] > 0 and nums[i] < len(nums) and nums[i] != nums[ci]:
+            if 0 < nums[i] < len(nums) and nums[i] != nums[ci]:
                 nums[i], nums[ci] = nums[ci], nums[i]
             else:
                 i += 1
