@@ -1,9 +1,11 @@
 def shiftedBinarySearch(arr, key):
     pivot_index = find_pivot_index(arr)
 
+    # if no pivot - regular bin search
     if pivot_index == -1:
         return binary_search(arr, key, 0, len(arr) - 1)
 
+    # if key is pivot element
     if arr[pivot_index] == key:
         return pivot_index
 
