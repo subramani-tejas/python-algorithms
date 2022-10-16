@@ -1,6 +1,6 @@
-import LinkedList as LinkedList
+import LinkedList as my_ll
 
-ll = LinkedList.LinkedList()
+ll = my_ll.LinkedList()
 
 ll.insert_first('d')
 ll.insert_first('c')
