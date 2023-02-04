@@ -12,7 +12,6 @@ def get_prefix_sum(arr):
     for i in range(1, len(arr)):
         sum = arr[i] + prefix_sum[i - 1]
         prefix_sum.append(sum)
-    print(prefix_sum)
     return prefix_sum
 
 
