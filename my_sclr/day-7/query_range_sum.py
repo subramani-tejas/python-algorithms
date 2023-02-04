@@ -2,7 +2,8 @@
 # calculate sum of all elements in range [L, R].
 # Return array with sum asked in each query range.
 
-# TC: O(N*Q)
+# TC: O(N * Q)
+# SC: O(1)
 def solve(arr, queries):
     ans = []
     for query in queries:
