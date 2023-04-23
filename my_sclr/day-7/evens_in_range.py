@@ -1,13 +1,16 @@
 # array with N elements & Q queries
 # for each query [L, R] find count of even numbers in that range
+import prefix_sum
 
+
+# O(N)
 def get_num_evens(arr, queries):
     evens = get_evens(arr)
     return get_range_sum(evens, queries)
 
 
 def get_range_sum(arr, queries):
-    psum_evens = get_prefix_sum_in_place(arr)
+    psum_evens = prefix_sum.get_prefix_sum_in_place(arr)
     ans = []
 
     for query in queries:
@@ -20,6 +23,7 @@ def get_range_sum(arr, queries):
     return ans
 
 
+# O(N)
 def get_evens(arr):
     evens = []
     for item in arr:
@@ -30,14 +34,11 @@ def get_evens(arr):
     return evens
 
 
-def get_prefix_sum_in_place(arr):
-    for i in range(1, len(arr)):
-        arr[i] = arr[i - 1] + arr[i]
-    return arr
+# arr = [2, 1, 8, 3, 9, 6]
+# queries = [[0, 3], [3, 5], [1, 3], [2, 4]]
 
-
-arr = [2, 1, 8, 3, 9, 6]
-queries = [[0, 3], [3, 5], [1, 3], [2, 4]]
+arr = [2, 4, 3, 7, 9, 8, 6, 5, 4, 9]
+queries = [[4, 8], [3, 9], [0, 4]]
 
 x = get_num_evens(arr, queries)
 print(x)
