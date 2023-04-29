@@ -18,17 +18,18 @@ def count_ag(text):
     return count
 
 
+# O(N)
 def count_ag2(text):
-    count_a = 0
+    carry = 0
     ans = 0
     for char in text:
         if char == 'a':
-            count_a += 1
+            carry += 1
         if char == 'g':
-            ans += count_a
+            ans += carry
     return ans
 
 
-s = "bcaggaag"
+s = "aabegaag"
 x = count_ag2(s)
 print(x)
