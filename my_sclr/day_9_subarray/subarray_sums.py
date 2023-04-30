@@ -59,4 +59,4 @@ arr = [3, 2, -1, 5]
 getAllSubArrays(arr)
 # print(sumOfAllSubarrays(arr))
 # print(sumAllSubarraysPrefixSum(arr))
-print(getTotalSumOfAllSubarraysSum(arr))
+# print(getTotalSumOfAllSubarraysSum(arr))
