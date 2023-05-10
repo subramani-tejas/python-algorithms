@@ -18,3 +18,6 @@ class TestMain(unittest.TestCase):
         assert source.is_leap_year(2000) == True
         assert source.is_leap_year(2020) == True
         print("is_leap_year() passed OK")
+
+    def test_find_HCF(self):
+        pass
