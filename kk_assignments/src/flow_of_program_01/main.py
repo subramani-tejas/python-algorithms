@@ -128,37 +128,40 @@ def get_LCM(x, y):
     3^2 (3's max power raised is 2)
     LCM = 2^3 x 3^2 = 8 x 9 = 72
     """
-    x_factorization = get_prime_factorization(x)
-    y_factorization = get_prime_factorization(y)
+    x_factors = get_prime_factorization(x)
+    y_factors = get_prime_factorization(y)
 
-    common_factors = set()
-    for x_item, y_item in zip(x_factorization, y_factorization):
-        common_factors.add(x_item)
-        common_factors.add(y_item)
-
-    print(f"common factors of {x} and {y} are {common_factors}")
-
-    x_freq = get_frequency_map(x_factorization)
-    y_freq = get_frequency_map(y_factorization)
-
+    lcm_factors = []
     lcm = 1
+    i, j = 0, 0
 
-    x_power, y_power = 0, 0
-    for (x_key, x_value) in x_freq.items():
-        if x_key in common_factors:
-            if x_value > x_power:
-                x_power = x_value
+    while i < len(x_factors) and j < len(y_factors):
+        if x_factors[i] == y_factors[j]:
+            lcm_factors.append(x_factors[i])
+            i += 1
+            j += 1
+        elif x_factors[i] > y_factors[j]:
+            lcm_factors.append(y_factors[j])
+            j += 1
+        else:
+            # x_factors[i] < y_factors[j]:
+            lcm_factors.append(x_factors[i])
+            i += 1
 
-    for (y_key, y_value) in y_freq.items():
-        if y_key in common_factors:
-            if y_value > y_power:
-                y_power = y_value
+    # add any leftover items to lcm factors
+    while i < len(x_factors):
+        lcm_factors.append(x_factors[i])
+        i += 1
 
-    common_factors = list(common_factors)
-    lcm *= (common_factors[0] ** x_power) * (common_factors[1] ** y_power)
+    while j < len(y_factors):
+        lcm_factors.append(y_factors[j])
+        j += 1
 
-    print(lcm)
-    print("TODO: FIX BUG HERE")
+    for factor in lcm_factors:
+        lcm = lcm * factor
+
+    print(f"LCM factors are: {lcm_factors}")
+    print(f"LCM: {lcm}")
     return lcm
 
 
@@ -183,6 +186,3 @@ def print_sum_of_inputs():
     :return: Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
     """
     pass
-
-
-get_LCM(24, 36)
