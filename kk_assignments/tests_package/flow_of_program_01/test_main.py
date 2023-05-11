@@ -1,5 +1,5 @@
-import io
-import sys
+from io import StringIO
+from unittest.mock import patch
 import unittest
 import kk_assignments.src.flow_of_program_01.main as source
 
@@ -19,5 +19,23 @@ class TestMain(unittest.TestCase):
         assert source.is_leap_year(2020) == True
         print("is_leap_year() passed OK")
 
-    def test_find_HCF(self):
-        pass
+    def test_get_HCF(self):
+        self.assertEqual(source.get_HCF(24, 36), 12)
+        self.assertEqual(source.get_HCF(10, 0), 10)
+        print("get_HCF() passed OK")
+
+    def test_get_LCM(self):
+        self.assertEqual(source.get_LCM(24, 36), 72)
+        self.assertEqual(source.get_LCM(10, 0), 10)
+        print("get_LCM() passed OK")
+
+    def test_print_sum_of_inputs(self):
+        @patch('sys.stdout', new_callable=StringIO)
+        @patch('builtins.input', side_effect=['1', '2', '3', 'x'])
+        def test_sum_numbers(self, mock_input, mock_output):
+            self.assertEqual(source.print_sum_of_inputs(), 6)
+            self.assertEqual(mock_output.getvalue(),
+                             "Enter number. Enter x when done. "
+                             "Enter number. Enter x when done. "
+                             "Enter number. Enter x when done. "
+                             "Enter number. Enter x when done. ")

@@ -127,6 +127,9 @@ def get_LCM(x, y):
     2^3 (2's max power raised is 3)
     3^2 (3's max power raised is 2)
     LCM = 2^3 x 3^2 = 8 x 9 = 72
+
+    LCM(0, 0) = undefined
+    LCM(0, N) = 0
     """
     x_factors = get_prime_factorization(x)
     y_factors = get_prime_factorization(y)
@@ -185,4 +188,12 @@ def print_sum_of_inputs():
     """
     :return: Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
     """
-    pass
+    sum = 0
+    while True:
+        input_text = input("Enter number. Enter x when done.")
+        if input_text == 'x':
+            break
+        sum += int(input_text)
+
+    print(sum)
+    return sum
