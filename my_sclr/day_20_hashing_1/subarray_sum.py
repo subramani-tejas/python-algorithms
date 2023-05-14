@@ -1,23 +1,21 @@
 import my_sclr.day_9_subarray.subarray_sums as subarray
 import my_sclr.day_7_prefix.prefix_sum as prefix_sum
-import frequency as freqMap
+import frequency as freq_map
 
 
 # O(N^3)
-def initialSubarrayZeroSum(arr):
-    n = len(arr)
-
+def initial_subarray_zero_sum(arr):
     # find all subarrays
     # O(N^3)
-    allSubarrays = subarray.getAllSubArrays(arr)
+    allSubarrays = subarray.get_all_subarrays(arr)
 
     # count of subarrays with sum=0
     count = 0
     for sub in allSubarrays:
-        sum = 0
+        my_sum = 0
         for item in sub:
-            sum += item
-        if sum == 0:
+            my_sum += item
+        if my_sum == 0:
             count += 1
             print(sub)
 
@@ -26,12 +24,12 @@ def initialSubarrayZeroSum(arr):
 
 # O(N)
 # BUG
-def subarrayZeroSum(arr):
+def subarray_zero_sum(arr):
     psum = prefix_sum.get_prefix_sum(arr)  # O(N)
-    map = freqMap.getElementFrequency(psum)  # O(N)
-    mySet = set(map)
+    my_map = freq_map.get_element_frequency(psum)  # O(N)
+    # mySet = set(map)
 
-    count = 0
+    # count = 0
     count = 1 if psum[len(arr) - 1] == 0 else 0
 
     # using set
@@ -41,7 +39,7 @@ def subarrayZeroSum(arr):
     #     mySet.add(psum[i])
 
     # using hashmap
-    for key, value in map.items():
+    for key, value in my_map.items():
         if key != 0 and value > 1:
             count += 1
         if key == 0:
@@ -50,9 +48,9 @@ def subarrayZeroSum(arr):
     return count
 
 
-# arr = [2, 8, -10, 1]
-# arr = [2, 2, 1, -3, 4, 3, 1, -2, -3, 2, 1]
-arr = [2, -5, 3, 6, -6, -2, 2]
+# nums = [2, 8, -10, 1]
+# nums = [2, 2, 1, -3, 4, 3, 1, -2, -3, 2, 1]
+nums = [2, -5, 3, 6, -6, -2, 2]
 
-print("brute force count:", initialSubarrayZeroSum(arr))
-print("psum optimized count:", subarrayZeroSum(arr))
+print("brute force count:", initial_subarray_zero_sum(nums))
+print("psum optimized count:", subarray_zero_sum(nums))

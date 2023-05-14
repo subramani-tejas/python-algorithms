@@ -5,7 +5,6 @@
 # O(N^2)
 def initial_find_leaders(arr):
     n = len(arr)
-    leader = False
     count = 0
 
     for i in range(n):
@@ -34,5 +33,5 @@ def optimized_find_leaders(arr):
     return count
 
 
-arr = [2, 5, 3, 4, 17, 16]
-optimized_find_leaders(arr)
+numbers = [2, 5, 3, 4, 17, 16]
+optimized_find_leaders(numbers)

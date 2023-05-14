@@ -2,7 +2,7 @@ import my_sclr.day_7_prefix.prefix_sum as prefix_sum
 
 
 # O(N^3)
-def getAllSubArrays(arr):
+def get_all_subarrays(arr):
     n = len(arr)
     # [[2], [2, 8], [2, 8, 9], [8], [8, 9], [9]]
     res = []
@@ -17,27 +17,26 @@ def getAllSubArrays(arr):
 
 
 # O(N^3)
-def sumOfAllSubarrays(arr):
-    allSubArrays = getAllSubArrays(arr)
+def sum_of_all_subarrays(arr):
+    allSubArrays = get_all_subarrays(arr)
     allSum = []
     for array in allSubArrays:
-        sum = 0
+        my_sum = 0
         for item in array:
-            sum += item
-        allSum.append(sum)
+            my_sum += item
+        allSum.append(my_sum)
 
     return allSum
 
 
 # O(N^2)
-def sumAllSubarraysPrefixSum(arr):
+def sum_all_subarrays_prefix_sum(arr):
     n = len(arr)
     psum = prefix_sum.get_prefix_sum(arr)
     allSum = []
 
     for i in range(n):
         for j in range(i, n):
-            sum_ = 0
             if i > 0:
                 sum_ = psum[j] - psum[i - 1]
             else:
@@ -47,16 +46,16 @@ def sumAllSubarraysPrefixSum(arr):
     return allSum
 
 
-def getTotalSumOfAllSubarraysSum(arr):
-    sumSubarrays = sumAllSubarraysPrefixSum(arr)
-    sum = 0
+def get_total_sum_of_all_subarrays_sum(arr):
+    sumSubarrays = sum_all_subarrays_prefix_sum(arr)
+    my_sum = 0
     for item in sumSubarrays:
-        sum += item
-    return sum
+        my_sum += item
+    return my_sum
 
 
-arr = [3, 2, -1, 5]
-getAllSubArrays(arr)
+nums = [3, 2, -1, 5]
+get_all_subarrays(nums)
 # print(sumOfAllSubarrays(arr))
 # print(sumAllSubarraysPrefixSum(arr))
 # print(getTotalSumOfAllSubarraysSum(arr))

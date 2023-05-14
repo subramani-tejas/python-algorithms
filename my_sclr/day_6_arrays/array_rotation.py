@@ -17,5 +17,5 @@ def rotate_by(arr, k):
     return arr
 
 
-arr = [4, 5, 12, 432, 2, 90]
-# print(rotate_by(arr, 3))
+nums = [4, 5, 12, 432, 2, 90]
+print(rotate_by(nums, 3))

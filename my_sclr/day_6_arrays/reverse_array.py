@@ -1,6 +1,6 @@
 # reverse full array
 # O(N)
-def reverse(self, arr):
+def reverse(arr):
     x = len(arr) - 1
     reverse_array = []
     while x >= 0:

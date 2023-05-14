@@ -2,7 +2,7 @@
 
 # square root if only num is perfect square
 # O(sqrt(num))
-def findSqRoot(num):
+def find_sq_root(num):
     i = 1
     ans = -1
 
@@ -16,7 +16,7 @@ def findSqRoot(num):
 
 # square root using binary search
 # O(log N)
-def findSqRootBinary(num):
+def find_sq_root_binary(num):
     if num < 2:
         return 1
 

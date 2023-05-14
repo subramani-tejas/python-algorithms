@@ -3,7 +3,7 @@
 import prefix_sum
 
 
-def get_EI_count(arr):
+def get_ei_count(arr):
     count = 0
     left_sum, right_sum = [0] * len(arr), [0] * len(arr)
 
@@ -36,8 +36,8 @@ def get_EI(arr):
     return min(ei) if ei else -1
 
 
-arr = [-7, 1, 5, 2, -4, 3, 0]
-# arr = [-3, 2, 4, -1]
+nums = [-7, 1, 5, 2, -4, 3, 0]
+# nums = [-3, 2, 4, -1]
 
 
-print(get_EI_count(arr))
+print(get_ei_count(nums))

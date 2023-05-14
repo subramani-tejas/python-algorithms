@@ -8,19 +8,19 @@ def solve(arr, queries):
     ans = []
     for query in queries:
         left, right = query
-        sum = get_range_sum(arr, left, right)
-        ans.append(sum)
+        summ = get_range_sum(arr, left, right)
+        ans.append(summ)
     return ans
 
 
 def get_range_sum(arr, left, right):
-    sum = 0
+    summ = 0
     for i in range(left, right + 1):
-        sum += arr[i]
-    return sum
+        summ += arr[i]
+    return summ
 
 
-arr = [-3, 6, 2, 4, 5, 2, 8, -9, 3, 1]
-queries = [[4, 8], [3, 7], [1, 3], [0, 4], [7, 7]]
-ans = solve(arr, queries)
-print(ans)
+nums = [-3, 6, 2, 4, 5, 2, 8, -9, 3, 1]
+all_queries = [[4, 8], [3, 7], [1, 3], [0, 4], [7, 7]]
+x = solve(nums, all_queries)
+print(x)

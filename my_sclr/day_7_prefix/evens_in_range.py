@@ -16,10 +16,10 @@ def get_range_sum(arr, queries):
     for query in queries:
         left, right = query
         if left == 0:
-            sum = psum_evens[right]
+            my_sum = psum_evens[right]
         else:
-            sum = psum_evens[right] - psum_evens[left - 1]
-        ans.append(sum)
+            my_sum = psum_evens[right] - psum_evens[left - 1]
+        ans.append(my_sum)
     return ans
 
 
@@ -37,8 +37,8 @@ def get_evens(arr):
 # arr = [2, 1, 8, 3, 9, 6]
 # queries = [[0, 3], [3, 5], [1, 3], [2, 4]]
 
-arr = [2, 4, 3, 7, 9, 8, 6, 5, 4, 9]
-queries = [[4, 8], [3, 9], [0, 4]]
+nums = [2, 4, 3, 7, 9, 8, 6, 5, 4, 9]
+all_queries = [[4, 8], [3, 9], [0, 4]]
 
-x = get_num_evens(arr, queries)
+x = get_num_evens(nums, all_queries)
 print(x)

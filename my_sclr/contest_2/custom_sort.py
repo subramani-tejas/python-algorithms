@@ -12,6 +12,6 @@ def solve(arr):
     return arr
 
 
-arr = ["adarsh80", "harsh95", "shivam95", "tejas89"]
-q = solve(arr)
+nums = ["adarsh80", "harsh95", "shivam95", "tejas89"]
+q = solve(nums)
 print(q)

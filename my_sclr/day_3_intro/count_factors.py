@@ -5,25 +5,25 @@ import math
 
 
 # O(N)
-def countFactorsOf(self, A):
+def count_factors_of(a):
     ans = 0
-    n = math.floor(math.sqrt(A))
+    n = math.floor(math.sqrt(a))
     for i in range(1, n + 1):
-        if A % i == 0:
+        if a % i == 0:
             ans = ans + 2
-        if i * i == A:
+        if i * i == a:
             ans = ans - 1
     return ans
 
 
 # returns factors list
-def get_factors(N):
+def get_factors(n):
     factors = []
-    n = math.floor(math.sqrt(N))
+    n = math.floor(math.sqrt(n))
     for i in range(1, n + 1):
-        if N % i == 0:
+        if n % i == 0:
             factors.append(i)
-            if i * i != N:
-                factors.append(math.floor(N / i))
+            if i * i != n:
+                factors.append(math.floor(n / i))
 
     return factors

@@ -6,28 +6,28 @@
 VOWELS = ['a', 'e', 'i', 'o', 'u']
 
 
-def findAllSubarraysStartVowel(S):
-    n = len(S)
+def find_all_subarrays_start_vowel(s):
+    n = len(s)
     allS = []
 
     for i in range(n):
-        if S[i].lower() in VOWELS:
+        if s[i].lower() in VOWELS:
             for j in range(i, n):
                 sub = []
                 for k in range(i, j + 1):
-                    sub.append(S[k])
+                    sub.append(s[k])
                 allS.append(sub)
 
     print(allS)
     return len(allS) % 10003
 
 
-def findAmazingSubarrayCount(S):
-    n = len(S)
+def find_amazing_subarray_count(s):
+    n = len(s)
     count = 0
 
     for i in range(n):
-        if S[i].lower() in VOWELS:
+        if s[i].lower() in VOWELS:
             count += n - i
 
     print(count)
@@ -35,5 +35,5 @@ def findAmazingSubarrayCount(S):
 
 
 S = "ABEcU"
-findAllSubarraysStartVowel(S)
-findAmazingSubarrayCount(S)
+find_all_subarrays_start_vowel(S)
+find_amazing_subarray_count(S)
