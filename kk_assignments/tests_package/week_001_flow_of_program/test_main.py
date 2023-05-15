@@ -1,7 +1,7 @@
 from io import StringIO
 from unittest.mock import patch
 import unittest
-import kk_assignments.src.flow_of_program_01.main as source
+import kk_assignments.src.week_001_flow_of_program.main as source
 
 
 class TestMain(unittest.TestCase):
