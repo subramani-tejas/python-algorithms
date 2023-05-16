@@ -112,7 +112,8 @@ def get_prime_factorization(n: int) -> list:
 
 def get_LCM(x, y):
     """
-    :param x, y: integers
+    :param x: integer
+    :param y: integer
     :return: return least common multiple (LCM) of two numbers.
 
     Example, LCM (24, 36) = 72
@@ -188,12 +189,12 @@ def print_sum_of_inputs():
     """
     :return: Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
     """
-    sum = 0
+    sum_ = 0
     while True:
         input_text = input("Enter number. Enter x when done.")
         if input_text == 'x':
             break
-        sum += int(input_text)
+        sum_ += int(input_text)
 
-    print(sum)
-    return sum
+    print(sum_)
+    return sum_

@@ -14,9 +14,9 @@ class TestMain(unittest.TestCase):
         print("print_multiplication_table() passed OK")
 
     def test_is_leap_year(self):
-        assert source.is_leap_year(1900) == False
-        assert source.is_leap_year(2000) == True
-        assert source.is_leap_year(2020) == True
+        assert source.is_leap_year(1900) is False
+        assert source.is_leap_year(2000) is True
+        self.assertTrue(source.is_leap_year(2020))
         print("is_leap_year() passed OK")
 
     def test_get_HCF(self):
@@ -32,7 +32,7 @@ class TestMain(unittest.TestCase):
     def test_print_sum_of_inputs(self):
         @patch('sys.stdout', new_callable=StringIO)
         @patch('builtins.input', side_effect=['1', '2', '3', 'x'])
-        def test_sum_numbers(self, mock_input, mock_output):
+        def test_sum_numbers(mock_output):
             self.assertEqual(source.print_sum_of_inputs(), 6)
             self.assertEqual(mock_output.getvalue(),
                              "Enter number. Enter x when done. "
