@@ -184,3 +184,65 @@ def smaller_numbers_than_current(arr):
         
             return res
         """
+
+
+def create_target_array(nums, index):
+    """ LeetCode: 1389. Create Target Array in the Given Order
+    Given two arrays of integers nums and index. Your task is to create target array under the following rules:
+    - Initially target array is empty.
+    - From left to right read nums[i] and index[i], insert at index index[i] the value nums[i] in target array.
+    - Repeat the previous step until there are no elements to read in nums and index.
+    - Return the target array.
+
+    Example 1:
+    Input: nums = [0,1,2,3,4], index = [0,1,2,2,1]
+    Output: [0,4,1,3,2]
+    Explanation:
+    nums       index     target
+    0            0        [0]
+    1            1        [0,1]
+    2            2        [0,1,2]
+    3            2        [0,1,3,2]
+    4            1        [0,4,1,3,2]
+
+    You need to insert at the index and move the rest of the elements if present.
+    """
+
+    def move_right(arr, idx, n):
+        """ O(n) """
+        for j in range(n - 1, idx, -1):
+            arr[j] = arr[j - 1]
+        return arr
+
+    n = len(nums)
+    target = [-1] * n
+
+    """ O(n^2) """
+    for i in range(n):
+        move_right(target, index[i], n)
+        target[index[i]] = nums[i]
+
+    return target
+
+
+def check_if_pangram(sentence):
+    """ Leetcode: 1832. Check if the Sentence Is Pangram
+    A pangram is a sentence where every letter of the English alphabet appears at least once.
+    Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+    Example 1:
+    Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+    Output: true
+    Explanation: sentence contains at least one of every letter of the English alphabet.
+
+    Example 2:
+    Input: sentence = "leetcode"
+    Output: false
+    """
+    ALPHABET_SIZE = 26
+    found = []
+
+    for letter in sentence:
+        if letter not in found:
+            found.append(letter)
+
+    return len(found) == ALPHABET_SIZE
